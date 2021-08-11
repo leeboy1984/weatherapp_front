@@ -19,10 +19,10 @@ function WeatherPrediction(){
 			      <tr>
 			      	{(weatherContext.weatherPrediction && weatherContext.weatherPrediction.header  ? (
 			      		weatherContext.weatherPrediction.header.map((header) => (
-							<th><img src={"https://openweathermap.org/img/wn/" + header.icon + "@2x.png"} alt=""/><br/><span><i>{header.timestamp}</i></span></th>		
+							<th key={header.timestamp}><img src={"https://openweathermap.org/img/wn/" + header.icon + "@2x.png"} alt=""/><br/><span><i>{header.timestamp}</i></span></th>		
 			      		))
 			      	) : (
-			      			<th>Waiting for city selection</th>
+			      			<th >Waiting for city selection</th>
 			      		)
 			      	)}
 
@@ -35,7 +35,7 @@ function WeatherPrediction(){
 			      		weatherContext.weatherPrediction.body.map((row) => (
 			      			<tr>{
 			      				row.map((col) => (
-			      					<td>{col.value}</td>
+			      					<td key={col.key}>{col.value}</td>
 			      				))
 			      			}</tr>
 			      		))

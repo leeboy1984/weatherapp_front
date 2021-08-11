@@ -14,6 +14,8 @@ import WeatherPrediction from './components/prediction/WeatherPrediction';
 import Favorites from './components/favorites/Favorites';
 
 import { getCountries } from './services/getCountries';
+import { getCurrentWeather } from './services/getWeather';
+import { getWeatherPrediction } from './services/getWeather';
 
 function App() {
 
@@ -73,6 +75,26 @@ const addFavPlaceHandler = (event) => {
       setCountries(countriesList)
     });
   }, []);
+
+  // Get weather info every 30s if city is configured
+  useEffect(() => {
+    const interval = setInterval(() => {
+      
+      if (cityCode !== ""){
+        getCurrentWeather(cityCode).then( (currentWeather) => {     
+          setCurrentWeather(currentWeather)
+        });
+        getWeatherPrediction(cityCode).then( (weatherPrediction) => {
+          setWeatherPrediction(weatherPrediction)
+        });
+      }
+      
+    }, 30000);
+    return () => clearInterval(interval);
+  }, [cityCode]);
+
+
+  
 
   return (
     <WeatherAppContext.Provider value={globalSetting}>
