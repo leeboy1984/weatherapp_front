@@ -38,7 +38,7 @@ function Favorites(props){
 		let clickedCity = event.target.value;
 
 		let newFavs = weatherContext.favs.filter(function (value, index, arr){
-			return value.cityCode != clickedCity;
+			return value.cityCode !== clickedCity;
 		});
 
 		weatherContext.setFavs(newFavs);

@@ -6,24 +6,10 @@ import './WeatherPrediction.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import ListGroup from 'react-bootstrap/ListGroup';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
-
 
 function WeatherPrediction(){
 
 	const weatherContext = useContext(WeatherAppContext);
-
-	function renderRow(row){
-		let rowStr = "";
-
-		for (var i = 0; i<row.length; i++)
-			rowStr += "<td>" + row[i].value + "</td>";
-		
-		return rowStr;
-	}
 
 	return (
 		<Container className="weatherPrediction">

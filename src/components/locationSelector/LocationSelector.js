@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import WeatherAppContext from '../WeatherAppContext';
 
 import './LocationSelector.css';
