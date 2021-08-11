@@ -1,0 +1,11 @@
+.currentWeather {
+  border: solid 1px darkgrey;
+  border-radius: 5px;
+  font-size: calc(10px + 2vmin);
+  color: darkgrey;
+  margin:  5% 5% 5% 5%;
+}
+
+.currentWeather .weatherIcon {
+  margin: 0 auto;
+}
